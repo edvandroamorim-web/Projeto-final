@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defesa Civil - Plano Familiar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            Defesa Civíl <span class="sub-logo">| Proteção </span>
+        </div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#" class="ativo">Plano Familiar</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="apresentacao" class="secao-ativa">
+            <div class="hero">
+                <h1>Proteja quem você ama.</h1>
+                <p>Ter um Plano Familiar de Emergência é o primeiro passo para garantir a segurança da sua casa em situações de risco.</p>
+            </div>
+            
+            <div class="beneficios-container">
+                <div class="card-beneficio">
+                    <img src="images-36.jpeg" alt="Família" class="img-beneficio">
+                    <h3>+10.000 Famílias</h3>
+                    <p>Já criaram seus planos e sabem exatamente como agir em emergências.</p>
+                </div>
+                <div class="card-beneficio">
+                    <img src="images-37.jpeg" alt="Pessoa respirando calma" class="img-beneficio">
+                    <h3>Ação Rápida</h3>
+                    <p>Reduz o pânico e agiliza a saída para locais seguros quando cada segundo importa.</p>
+                </div>
+                <div class="card-beneficio">
+                    <img src="images-38.jpeg" alt="Família protegida sob teto" class="img-beneficio">
+                    <h3>Proteção Focada</h3>
+                    <p>Estratégias específicas para cuidar de crianças e idosos durante desastres.</p>
+                </div>
+            </div>
+
+            <div class="acao-central">
+                <button class="btn-principal" onclick="mostrarFormulario()">Criar meu Plano Familiar agora</button>
+            </div>
+        </section>
+
+        <section id="configuracao" class="secao-oculta">
+            <h2>Configure seu Plano</h2>
+            <p>Preencha os dados abaixo para gerarmos recomendações personalizadas.</p>
+            
+            <form id="formPlano" onsubmit="gerarPlanoFamiliar(event)">
+                <div class="grupo-input">
+                    <label for="numPessoas">Número de pessoas na residência:</label>
+                    <input type="number" id="numPessoas" min="1" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="tipoResidencia">Tipo de residência:</label>
+                    <select id="tipoResidencia" required>
+                        <option value="">Selecione...</option>
+                        <option value="Casa">Casa</option>
+                        <option value="Apartamento">Apartamento</option>
+                    </select>
+                </div>
+
+                <div class="grupo-inline">
+                    <label>Possui crianças?</label>
+                    <select id="possuiCriancas" required>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <div class="grupo-inline">
+                    <label>Possui idosos?</label>
+                    <select id="possuiIdosos" required>
+                        <option value="Sim">Sim</option>
+                        <option value="Não">Não</option>
+                    </select>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="riscoPrincipal">Principal risco da região:</label>
+                    <select id="riscoPrincipal" required>
+                        <option value="">Selecione o risco...</option>
+                        <option value="Enchente">Enchente</option>
+                        <option value="Deslizamento">Deslizamento</option>
+                        <option value="Vendaval">Vendaval</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-principal">Gerar meu plano</button>
+                <button type="button" class="btn-secundario" onclick="voltarParaApresentacao()">Voltar</button>
+            </form>
+        </section>
+
+        <section id="resultado" class="secao-oculta">
+            <h2>Seu Plano Familiar de Emergência</h2>
+            
+            <div class="plano-box">
+                <h3>Resumo da Família</h3>
+                <p id="resumoFamilia"></p>
+                
+                <h3>Recomendações para: <span id="tituloRisco"></span></h3>
+                <p id="recomendacaoRisco"></p>
+
+                <h3>Antes da Emergência</h3>
+                <ul>
+                    <li>Prepare um kit de sobrevivência com água, alimentos não perecíveis, lanterna e documentos.</li>
+                    <li>Combine um ponto de encontro seguro com todos os membros da família.</li>
+                </ul>
+
+                <h3>Durante a Emergência</h3>
+                <ul>
+                    <li>Mantenha a calma e siga as rotas de fuga planejadas.</li>
+                    <li>Acompanhe os canais oficiais da Defesa Civil (Ligue 199 em caso de risco iminente).</li>
+                </ul>
+
+                <div id="alertasEspeciais" style="display: none;">
+                    <h3>Observações Especiais</h3>
+                    <p id="alertaCrianca"></p>
+                    <p id="alertaIdoso"></p>
+                </div>
+            </div>
+
+            <button class="btn-principal" onclick="voltarParaApresentacao()">Fazer novo plano</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
